@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="AKB Communication à Lomé : photo, vidéo, gestion des réseaux sociaux, création de sites web et d’applications mobiles. Votre image, notre vision."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="AKB Communication — Photo, vidéo et solutions digitales" />
+    <meta
+      property="og:description"
+      content="Photo, vidéo, réseaux sociaux et création web et mobile à Lomé, Togo."
+    />
+    <meta name="theme-color" content="#071326" />
+    <title>AKB Communication — Photo, vidéo et solutions digitales à Lomé</title>
+  </head>
+  <body>
+    <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+      hidden
+    >
+      <input type="hidden" name="form-name" value="contact" />
+      <input name="nom" />
+      <input name="email" />
+      <select name="besoin">
+        <option>Photo et vidéo</option>
+        <option>Gestion des réseaux sociaux</option>
+        <option>Création de site web</option>
+        <option>Application mobile</option>
+        <option>Autre demande</option>
+      </select>
+      <textarea name="message"></textarea>
+      <input name="bot-field" />
+    </form>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
