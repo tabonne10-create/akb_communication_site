@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://akb-communication-site.netlify.app/sitemap.xml
