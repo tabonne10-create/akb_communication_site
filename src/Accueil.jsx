@@ -299,25 +299,43 @@ function Accueil() {
             <span className="service-number">01</span>
             <h3>Photo & vidéo</h3>
             <p>
-              Couverture d’événements, portraits et création de vidéos pour
-              raconter votre histoire et valoriser votre activité.
+              Mariages, cérémonies, remises de diplômes et événements
+              professionnels : racontez vos moments importants en images.
             </p>
+            <Link
+              className="service-card-link"
+              to="/contact?besoin=Photo%20et%20vid%C3%A9o"
+            >
+              Demander un devis <span aria-hidden="true">→</span>
+            </Link>
           </article>
           <article className="service-card">
             <span className="service-number">02</span>
             <h3>Réseaux sociaux</h3>
             <p>
-              Gestion de comptes et création de contenus pour faire vivre
-              votre présence en ligne.
+              Des photos, vidéos courtes et publications pour les restaurants,
+              boutiques, salons et entreprises.
             </p>
+            <Link
+              className="service-card-link"
+              to="/contact?besoin=Gestion%20des%20r%C3%A9seaux%20sociaux"
+            >
+              Demander un devis <span aria-hidden="true">→</span>
+            </Link>
           </article>
           <article className="service-card">
             <span className="service-number">03</span>
             <h3>Web & mobile</h3>
             <p>
-              Création de sites web et d’applications mobiles adaptés aux
-              besoins de votre projet.
+              Un site adapté au téléphone pour présenter vos services, votre
+              catalogue et faciliter les demandes par WhatsApp.
             </p>
+            <Link
+              className="service-card-link"
+              to="/contact?besoin=Web%20et%20mobile"
+            >
+              Demander un devis <span aria-hidden="true">→</span>
+            </Link>
           </article>
         </div>
       </section>
@@ -334,7 +352,10 @@ function Accueil() {
           <article>
             <span>GESTION DES RÉSEAUX SOCIAUX</span>
             <h3>Le Roi Lapin</h3>
-            <p>Gestion du compte et animation de la présence sur les réseaux sociaux.</p>
+            <p>
+              Collaboration en cours : tournage, montage et publication de
+              vidéos pour les réseaux sociaux.
+            </p>
             <div className="reference-links" aria-label="Comptes officiels du Roi Lapin">
               <a href="https://www.tiktok.com/@leroilapin7" target="_blank" rel="noreferrer">
                 TikTok <span aria-hidden="true">↗</span>
@@ -506,26 +527,29 @@ function Accueil() {
       <section className="experience-preview" aria-labelledby="experience-title">
         <div className="section-heading">
           <p className="hero-kicker">Le parcours</p>
-          <h2 id="experience-title">Des expériences, des rencontres</h2>
+          <h2 id="experience-title">Projets & collaborations</h2>
           <p>
-            Quelques collaborations qui ont jalonné notre parcours.
+            Des projets auxquels AKB Communication a participé.
           </p>
         </div>
         <div className="experience-preview-grid">
           <article>
             <span>2026 · EN COURS</span>
             <h3>Le Roi Lapin</h3>
-            <p>Collaboration avec Le Roi Lapin.</p>
+            <p>
+              Notre équipe assure le tournage, le montage et la publication
+              de vidéos pour les réseaux sociaux.
+            </p>
           </article>
           <article>
             <span>2026 · ÉVÉNEMENT</span>
             <h3>Dunenyo Zan</h3>
-            <p>Collaboration avec Staff Média.</p>
+            <p>Projet événementiel autour de Dunenyo Zan.</p>
           </article>
           <article>
             <span>2025 · PROJET NUMÉRIQUE</span>
             <h3>Midzo Tech SARL — Mayo App</h3>
-            <p>Collaboration avec CEO DEDE KOESAH.</p>
+            <p>Projet numérique réalisé avec Midzo Tech SARL.</p>
           </article>
         </div>
         <Link className="text-link" to="/experiences">

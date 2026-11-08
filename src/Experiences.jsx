@@ -6,42 +6,38 @@ const experiences = [
     nom: "AKB Communication",
     dates: "À partir du 20 décembre 2026",
     statut: "À venir",
-    collaborateur: "CEO : ALY Koffi Brice",
   },
   {
     id: "dunenyo",
     nom: "Dunenyo Zan",
     dates: "15 août – 25 août 2026",
     statut: "Terminé",
-    collaborateur: "Staff Média",
   },
   {
     id: "adn",
     nom: "Académie Digitale Numérique (ADN)",
     dates: "1er juin 2026",
     statut: "Terminé",
-    collaborateur: "Organisation de ADN",
   },
   {
     id: "roi-lapin",
     nom: "Le Roi Lapin",
     dates: "Depuis le 14 mai 2026",
     statut: "En cours",
-    collaborateur: "Le Roi Lapin",
+    contribution:
+      "Tournage, montage et publication de vidéos pour les réseaux sociaux.",
   },
   {
     id: "demarcation",
     nom: "Démarcation artisanale — 1re édition",
     dates: "27 décembre 2025",
     statut: "Terminé",
-    collaborateur: "Vision éclaire",
   },
   {
     id: "mayo-app",
     nom: "Midzo Tech SARL — Mayo App",
     dates: "6 janvier – 14 octobre 2025",
     statut: "Terminé",
-    collaborateur: "CEO : DEDE KOESAH",
   },
 ];
 
@@ -52,7 +48,8 @@ function Experiences() {
         <p className="hero-kicker">Parcours professionnel</p>
         <h1>Expériences</h1>
         <p>
-          Quelques collaborations et étapes importantes de mon parcours.
+          Cette page présente les projets et leurs dates. Le travail réalisé
+          par AKB est indiqué lorsqu’il est confirmé.
         </p>
       </header>
 
@@ -80,10 +77,12 @@ function Experiences() {
                 </span>
               </div>
               <h2>{experience.nom}</h2>
-              <p className="experience-credit">
-                <span>Crédit / collaborateur</span>
-                {experience.collaborateur}
-              </p>
+              {experience.contribution && (
+                <p className="experience-contribution">
+                  <strong>Travail réalisé par AKB :</strong>{" "}
+                  {experience.contribution}
+                </p>
+              )}
             </article>
           </li>
         ))}

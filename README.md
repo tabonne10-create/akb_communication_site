@@ -1,16 +1,47 @@
-# React + Vite
+# AKB Communication
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Site vitrine d'AKB Communication, construit avec React, Vite et React Router.
+Le site est actuellement une application front-end statique : aucune API Node.js
+ni base de données MongoDB n'est connectée.
 
-Currently, two official plugins are available:
+## Démarrer le projet
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Prérequis : Node.js et npm.
 
-## React Compiler
+```powershell
+npm install
+npm run dev
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Le terminal affiche l'adresse locale à ouvrir dans le navigateur.
 
-## Expanding the ESLint configuration
+Commandes disponibles :
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```powershell
+npm run lint
+npm run build
+npm run preview
+```
+
+Sur Windows, si PowerShell bloque le script `npm.ps1`, utiliser `npm.cmd` à la
+place (par exemple `npm.cmd run dev`).
+
+## Structure du projet
+
+- `src/main.jsx` : point d'entrée React et configuration du routeur.
+- `src/App.jsx` : navigation, routes, menu et pied de page.
+- `src/Accueil.jsx` : page d'accueil, projets, filtres, galerie et présentation
+  du fondateur.
+- `src/Agence.jsx`, `src/Experiences.jsx`, `src/Contact.jsx` : pages du site.
+- `src/index.css`, `src/App.css` : styles.
+- `images/`, `videos/` : médias locaux importés par les composants.
+- `public/` : fichiers servis tels quels, comme `robots.txt` et `sitemap.xml`.
+
+## Apprendre React et MongoDB
+
+Le projet permet d'étudier React côté navigateur. MongoDB n'est pas encore
+utilisé : pour l'apprendre en pratique, il faudra ensuite créer une API serveur
+Node.js qui communiquera avec la base et que React appellera en HTTP.
+
+Le parcours étape par étape, les exercices et l'architecture recommandée sont
+dans le [guide React et MongoDB](./docs/guide-react-mongodb.md).

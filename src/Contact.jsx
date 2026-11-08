@@ -1,6 +1,20 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 function Contact() {
+  const [searchParams] = useSearchParams();
+  const besoinDemande = searchParams.get("besoin");
+  const besoinsDisponibles = [
+    "Photo et vidéo",
+    "Gestion des réseaux sociaux",
+    "Création de site web",
+    "Application mobile",
+    "Web et mobile",
+    "Autre demande",
+  ];
+  const besoinInitial = besoinsDisponibles.includes(besoinDemande)
+    ? besoinDemande
+    : "Photo et vidéo";
   const [etatEnvoi, setEtatEnvoi] = useState("idle");
   const [erreur, setErreur] = useState("");
 
@@ -92,14 +106,25 @@ function Contact() {
           Quel est votre besoin ?
           <select
             name="besoin"
-            defaultValue="Photo et vidéo"
+            defaultValue={besoinInitial}
           >
             <option>Photo et vidéo</option>
             <option>Gestion des réseaux sociaux</option>
             <option>Création de site web</option>
             <option>Application mobile</option>
+            <option>Web et mobile</option>
             <option>Autre demande</option>
           </select>
+        </label>
+
+        <label>
+          Ville où se déroule le projet
+          <input
+            type="text"
+            name="ville"
+            autoComplete="address-level2"
+            placeholder="Ex. Lomé, Kpalimé, Kara"
+          />
         </label>
 
         <label>

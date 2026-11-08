@@ -5,20 +5,26 @@ const services = [
   {
     numero: "01",
     titre: "Photo & vidéo",
+    besoin: "Photo et vidéo",
     description:
-      "Photographie, couverture d’événements et création vidéo pour raconter vos histoires et valoriser vos activités.",
+      "Photos et vidéos pour les mariages, cérémonies, anniversaires, remises de diplômes et événements professionnels.",
+    public: "Familles, entreprises, écoles et organisateurs d’événements.",
   },
   {
     numero: "02",
     titre: "Réseaux sociaux",
+    besoin: "Gestion des réseaux sociaux",
     description:
-      "Gestion de comptes et création de contenus pour développer et animer votre présence sur les réseaux sociaux.",
+      "Création de photos, vidéos courtes et publications pour faire connaître votre activité et garder le contact avec vos clients.",
+    public: "Restaurants, boutiques, salons, hôtels et petites entreprises.",
   },
   {
     numero: "03",
     titre: "Sites web & applications mobiles",
+    besoin: "Web et mobile",
     description:
-      "Conception et réalisation de solutions web et mobiles adaptées à vos besoins et à votre activité.",
+      "Sites adaptés au téléphone pour présenter vos services, afficher un catalogue et faciliter les demandes par WhatsApp.",
+    public: "Commerçants, indépendants, écoles et associations.",
   },
 ];
 
@@ -33,7 +39,9 @@ function Agence() {
           <p className="agency-description">
             Basée à Lomé, AKB Communication vous accompagne en photo, vidéo,
             gestion des réseaux sociaux et création de solutions web et
-            mobiles, avec une approche attentive à vos objectifs.
+            mobiles, avec une approche attentive à vos objectifs. Notre équipe
+            se déplace dans toutes les villes du Togo ; les frais de déplacement
+            sont précisés selon le lieu et la mission.
           </p>
           <Link className="agency-contact-link" to="/contact">
             Échanger sur votre projet <span aria-hidden="true">→</span>
@@ -57,6 +65,15 @@ function Agence() {
               <span className="service-number">{service.numero}</span>
               <h3>{service.titre}</h3>
               <p>{service.description}</p>
+              <p className="service-audience">
+                <strong>Pour :</strong> {service.public}
+              </p>
+              <Link
+                className="service-card-link"
+                to={`/contact?besoin=${encodeURIComponent(service.besoin)}`}
+              >
+                Demander un devis <span aria-hidden="true">→</span>
+              </Link>
             </article>
           ))}
         </div>
@@ -88,7 +105,10 @@ function Agence() {
           <article>
             <span>GESTION DES RÉSEAUX SOCIAUX</span>
             <h3>Le Roi Lapin</h3>
-            <p>Gestion du compte et création de contenus pour ses réseaux sociaux.</p>
+            <p>
+              Collaboration en cours : tournage, montage et publication de
+              vidéos pour les réseaux sociaux.
+            </p>
             <div className="reference-links" aria-label="Comptes officiels du Roi Lapin">
               <a href="https://www.tiktok.com/@leroilapin7" target="_blank" rel="noreferrer">
                 TikTok <span aria-hidden="true">↗</span>

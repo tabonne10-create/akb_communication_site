@@ -545,6 +545,39 @@ summary:focus-visible {
   font-size: 0.91rem;
 }
 
+.service-card .service-audience {
+  margin-top: 12px;
+  color: #c1cde0;
+  font-size: 0.82rem;
+}
+
+.service-audience strong {
+  color: #eef4ff;
+}
+
+.service-card-link {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  color: var(--blue-light);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.service-card-link:hover {
+  color: #fff;
+}
+
+.service-card-link:focus-visible {
+  border-radius: 2px;
+  outline: 2px solid var(--blue-light);
+  outline-offset: 4px;
+}
+
 .portfolio-section {
   padding: 86px 0 82px;
   border-top: 1px solid var(--line);
@@ -1268,18 +1301,13 @@ summary:focus-visible {
   line-height: 1.24;
 }
 
-.experience-credit {
-  display: grid;
-  gap: 4px;
+.experience-contribution {
   margin: 0;
   color: #d7e1f0;
 }
 
-.experience-credit span {
-  color: #8497b4;
-  font-size: 0.68rem;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
+.experience-contribution strong {
+  color: #eef4ff;
 }
 
 .experience-cta {
