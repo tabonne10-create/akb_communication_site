@@ -18,8 +18,48 @@ import mariageVertImage from "../images/optimized/mariage-tenues-vertes.webp";
 import octobreRoseImage from "../images/optimized/octobre-rose.webp";
 import mariageEmotionImage from "../images/optimized/mariage-emotion.webp";
 import portraitNocturneImage from "../images/optimized/portrait-nocturne.webp";
-import demarcationVideo from "../videos/première édition de la DÉMARCATION ARTISANALE.mp4";
-import makafuiVideo from "../videos/doigts de la fée Makafui merci pour votre participation.mp4";
+
+const videoDetails = {
+  "Avec la méthode 75-15-10, chaque CFA que tu gagnes travaille pour toi - 75 % pour tes besoins, 15 % pour l’épargne de sécurité, 10 % pour vivre pleinement. Tu veux apprendre à structurer ton argent comme un pro  Suis .mp4": {
+    titre: "La méthode 75-15-10 pour gérer son argent",
+    categorie: "Conseil",
+  },
+  "doigts de la fée Makafui merci pour votre participation.mp4": {
+    titre: "La fée Makafui — merci pour votre participation",
+    categorie: "Événement",
+    description: "Une vidéo de remerciement issue de vos réalisations.",
+  },
+  "première édition de la DÉMARCATION ARTISANALE.mp4": {
+    titre: "Démarcation artisanale — 1re édition",
+    categorie: "Événement",
+    description: "Un retour en images sur la première édition de l'événement.",
+  },
+  "Tu crois que ton petit revenu t’empêche d’atteindre tes grands projets  Détrompe-toi ! Avec la méthode 1-1-1, tu peux avancer même si tu gagnes peu. Les 3 étapes pour réussir - 1-Fixe un objectif clair (montant + date.mp4": {
+    titre: "La méthode 1-1-1 pour avancer vers ses projets",
+    categorie: "Conseil",
+  },
+};
+
+const videos = Object.entries(
+  import.meta.glob("../videos/*.mp4", {
+    eager: true,
+    import: "default",
+    query: "?url",
+  })
+)
+  .map(([chemin, src]) => {
+    const nomFichier = chemin.split("/").pop();
+    const details = videoDetails[nomFichier] ?? {};
+
+    return {
+      src,
+      titre: details.titre ?? nomFichier.replace(/\.mp4$/i, ""),
+      categorie: details.categorie ?? "Réalisation",
+      description:
+        details.description ?? "Une vidéo du portfolio d’AKB Communication.",
+    };
+  })
+  .sort((a, b) => a.titre.localeCompare(b.titre, "fr"));
 
 const projets = [
   {
@@ -445,45 +485,31 @@ function Accueil() {
       <section className="video-section" aria-labelledby="video-title">
         <div className="section-heading">
           <p className="hero-kicker">En mouvement</p>
-          <h2 id="video-title">Les événements en vidéo</h2>
+          <h2 id="video-title">Nos vidéos</h2>
           <p>
-            Retrouvez quelques vidéos présentes dans le dossier des réalisations.
-            Lancez la lecture pour les découvrir.
+            Parcourez les vidéos du portfolio. La lecture se lance à votre
+            demande.
           </p>
         </div>
         <div className="video-grid">
-          <article className="video-card">
-            <video
-              controls
-              preload="none"
-              playsInline
-              aria-label="Vidéo de la première édition de la Démarcation artisanale"
-            >
-              <source src={demarcationVideo} type="video/mp4" />
-              Votre navigateur ne prend pas en charge la lecture vidéo.
-            </video>
-            <div className="project-copy">
-              <p className="project-category">Événement</p>
-              <h3>Démarcation artisanale — 1re édition</h3>
-              <p>Un retour en images sur la première édition de l'événement.</p>
-            </div>
-          </article>
-          <article className="video-card">
-            <video
-              controls
-              preload="none"
-              playsInline
-              aria-label="Vidéo de remerciement de la fée Makafui"
-            >
-              <source src={makafuiVideo} type="video/mp4" />
-              Votre navigateur ne prend pas en charge la lecture vidéo.
-            </video>
-            <div className="project-copy">
-              <p className="project-category">Vidéo</p>
-              <h3>La fée Makafui — merci pour votre participation</h3>
-              <p>Une vidéo de remerciement issue de vos réalisations.</p>
-            </div>
-          </article>
+          {videos.map((video) => (
+            <article className="video-card" key={video.src}>
+              <video
+                controls
+                preload="metadata"
+                playsInline
+                aria-label={`Lire la vidéo : ${video.titre}`}
+              >
+                <source src={video.src} type="video/mp4" />
+                Votre navigateur ne prend pas en charge la lecture vidéo.
+              </video>
+              <div className="project-copy">
+                <p className="project-category">{video.categorie}</p>
+                <h3>{video.titre}</h3>
+                <p>{video.description}</p>
+              </div>
+            </article>
+          ))}
         </div>
         <a
           className="text-link"
